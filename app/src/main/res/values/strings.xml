@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">RunTrack</string>
+    <string name="default_web_client_id">787572797010-7mavv4u3akgrfi0meg60o4lcko3f9s9c.apps.googleusercontent.com</string>
+    <string name="ok">OK</string>
+    <string name="cancel">Batal</string>
+    <string name="allow_location">Izinkan Akses Lokasi</string>
+    <string name="start_run">Mulai Lari</string>
+    <string name="app_label">RunTrack</string>
+</resources>

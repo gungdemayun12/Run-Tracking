@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Night palette: only semantic colors are overridden. Legacy aliases follow automatically. -->
+    <color name="bg_page">#080B10</color>
+    <color name="surface">#11161F</color>
+    <color name="surface_alt">#1A212C</color>
+    <color name="surface_elevated">#151B25</color>
+    <color name="text_primary">#F5F7FA</color>
+    <color name="text_secondary">#98A4B5</color>
+    <color name="text_tertiary">#6D7A8C</color>
+    <color name="border">#232C3A</color>
+
+    <color name="brand_soft">#2B1810</color>
+    <color name="brand_soft_2">#3A2115</color>
+    <color name="accent_soft">#0F2E2A</color>
+
+    <color name="orange_300">#3A4554</color>
+    <color name="sheet_handle">#4A5668</color>
+</resources>

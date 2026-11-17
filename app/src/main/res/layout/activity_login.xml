@@ -1,0 +1,900 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/auth_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/auth_bg"
+    android:fitsSystemWindows="true">
+
+    <View
+        android:layout_width="280dp"
+        android:layout_height="280dp"
+        android:layout_gravity="top|start"
+        android:layout_marginStart="-80dp"
+        android:layout_marginTop="-40dp"
+        android:alpha="0.85"
+        android:background="@drawable/bg_glow_orange" />
+
+    <View
+        android:layout_width="220dp"
+        android:layout_height="220dp"
+        android:layout_gravity="top|end"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="-70dp"
+        android:alpha="0.45"
+        android:background="@drawable/bg_glow_orange" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/auth_hero"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:paddingStart="28dp"
+            android:paddingTop="18dp"
+            android:paddingEnd="28dp"
+            android:paddingBottom="18dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <FrameLayout
+                    android:layout_width="54dp"
+                    android:layout_height="54dp">
+
+                    <com.example.runtrack.ui.widget.RunnerLoaderView
+                        android:id="@+id/runner_loader"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="center"
+                        android:contentDescription="@string/app_name"
+                        android:src="@drawable/logo" />
+                </FrameLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:fontFamily="sans-serif-medium"
+                    android:letterSpacing="-0.02"
+                    android:text="RunTrack"
+                    android:textColor="@color/auth_text_primary"
+                    android:textSize="22sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tv_welcome"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:fontFamily="serif"
+                android:text="Welcome back."
+                android:textColor="@color/auth_text_primary"
+                android:textSize="34sp"
+                android:textStyle="italic" />
+
+            <TextView
+                android:id="@+id/tv_subtitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:gravity="center"
+                android:text="Pick up where you left off — your runs are waiting."
+                android:textColor="@color/auth_text_secondary"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/auth_sheet"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="@drawable/bg_auth_sheet"
+            android:orientation="vertical">
+
+            <androidx.core.widget.NestedScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:clipToPadding="false"
+                android:fillViewport="true"
+                android:overScrollMode="never"
+                android:scrollbars="none">
+
+                <LinearLayout
+                    android:id="@+id/auth_form_root"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingStart="22dp"
+                    android:paddingTop="22dp"
+                    android:paddingEnd="22dp"
+                    android:paddingBottom="28dp">
+
+                    <LinearLayout
+                        android:id="@+id/auth_tabs"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bg_auth_tab_track"
+                        android:orientation="horizontal"
+                        android:padding="4dp">
+
+                        <TextView
+                            android:id="@+id/tv_tab_sign_in"
+                            android:layout_width="0dp"
+                            android:layout_height="44dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/bg_auth_tab_active"
+                            android:gravity="center"
+                            android:text="Masuk"
+                            android:textColor="@color/auth_tab_active_text"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tv_tab_sign_up"
+                            android:layout_width="0dp"
+                            android:layout_height="44dp"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="Daftar"
+                            android:textColor="@color/auth_text_secondary"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/auth_error_card"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="14dp"
+                        android:background="@drawable/bg_auth_error"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:paddingStart="12dp"
+                        android:paddingTop="10dp"
+                        android:paddingEnd="6dp"
+                        android:paddingBottom="10dp"
+                        android:visibility="gone">
+
+                        <ImageView
+                            android:layout_width="18dp"
+                            android:layout_height="18dp"
+                            android:contentDescription="Peringatan"
+                            android:src="@drawable/ic_alert_circle"
+                            app:tint="@color/danger" />
+
+                        <TextView
+                            android:id="@+id/tv_auth_error"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_weight="1"
+                            android:lineSpacingExtra="2dp"
+                            android:textColor="@color/auth_text_primary"
+                            android:textSize="12.5sp" />
+
+                        <ImageView
+                            android:id="@+id/btn_auth_error_close"
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"
+                            android:background="?attr/selectableItemBackgroundBorderless"
+                            android:contentDescription="Tutup pesan"
+                            android:padding="8dp"
+                            android:src="@drawable/ic_close"
+                            app:tint="@color/auth_text_secondary" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/auth_success_card"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="14dp"
+                        android:background="@drawable/bg_auth_success"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:paddingStart="12dp"
+                        android:paddingTop="10dp"
+                        android:paddingEnd="6dp"
+                        android:paddingBottom="10dp"
+                        android:visibility="gone">
+
+                        <ImageView
+                            android:layout_width="18dp"
+                            android:layout_height="18dp"
+                            android:contentDescription="Berhasil"
+                            android:src="@drawable/ic_check_circle"
+                            app:tint="@color/success" />
+
+                        <TextView
+                            android:id="@+id/tv_auth_success"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_weight="1"
+                            android:lineSpacingExtra="2dp"
+                            android:textColor="@color/auth_text_primary"
+                            android:textSize="12.5sp" />
+
+                        <ImageView
+                            android:id="@+id/btn_auth_success_close"
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"
+                            android:background="?attr/selectableItemBackgroundBorderless"
+                            android:contentDescription="Tutup pesan"
+                            android:padding="8dp"
+                            android:src="@drawable/ic_close"
+                            app:tint="@color/auth_text_secondary" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/group_sign_in"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="18dp"
+                        android:orientation="vertical">
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/til_email"
+                            style="@style/Widget.RunTrack.AuthField"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            app:boxBackgroundColor="@color/auth_input"
+                            app:boxBackgroundMode="filled"
+                            app:boxCornerRadiusBottomEnd="16dp"
+                            app:boxCornerRadiusBottomStart="16dp"
+                            app:boxCornerRadiusTopEnd="16dp"
+                            app:boxCornerRadiusTopStart="16dp"
+                            app:boxStrokeWidth="0dp"
+                            app:boxStrokeWidthFocused="0dp"
+                            app:hintEnabled="false"
+                            app:startIconDrawable="@drawable/ic_auth_mail"
+                            app:startIconTint="@color/auth_icon">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/et_email"
+                                android:layout_width="match_parent"
+                                android:layout_height="56dp"
+                                android:hint="Alamat email"
+                                android:inputType="textEmailAddress"
+                                android:textColor="@color/auth_text_primary"
+                                android:textColorHint="@color/auth_text_hint"
+                                android:textSize="15sp" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/til_password"
+                            style="@style/Widget.RunTrack.AuthField"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="12dp"
+                            app:boxBackgroundColor="@color/auth_input"
+                            app:boxBackgroundMode="filled"
+                            app:boxCornerRadiusBottomEnd="16dp"
+                            app:boxCornerRadiusBottomStart="16dp"
+                            app:boxCornerRadiusTopEnd="16dp"
+                            app:boxCornerRadiusTopStart="16dp"
+                            app:boxStrokeWidth="0dp"
+                            app:boxStrokeWidthFocused="0dp"
+                            app:endIconMode="password_toggle"
+                            app:endIconTint="@color/auth_icon"
+                            app:hintEnabled="false"
+                            app:startIconDrawable="@drawable/ic_auth_lock"
+                            app:startIconTint="@color/auth_icon">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/et_password"
+                                android:layout_width="match_parent"
+                                android:layout_height="56dp"
+                                android:hint="Kata sandi"
+                                android:inputType="textPassword"
+                                android:textColor="@color/auth_text_primary"
+                                android:textColorHint="@color/auth_text_hint"
+                                android:textSize="15sp" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <com.google.android.material.checkbox.MaterialCheckBox
+                                android:id="@+id/cb_keep_signed_in"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:checked="true"
+                                android:clickable="false"
+                                android:focusable="false"
+                                android:minHeight="40dp"
+                                android:text="Tetap masuk di perangkat ini"
+                                android:textColor="@color/auth_text_primary"
+                                android:textSize="13sp"
+                                app:buttonTint="@color/brand" />
+
+                            <TextView
+                                android:id="@+id/tv_forgot_password"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:padding="8dp"
+                                android:text="Lupa kata sandi?"
+                                android:textColor="@color/brand"
+                                android:textSize="13sp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btn_sign_in"
+                            android:layout_width="match_parent"
+                            android:layout_height="54dp"
+                            android:layout_marginTop="8dp"
+                            android:insetTop="0dp"
+                            android:insetBottom="0dp"
+                            android:text="Masuk"
+                            android:textAllCaps="false"
+                            android:textColor="@color/white"
+                            android:textSize="16sp"
+                            android:textStyle="bold"
+                            app:backgroundTint="@color/brand"
+                            app:cornerRadius="28dp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/group_sign_up"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="18dp"
+                        android:orientation="vertical"
+                        android:visibility="gone">
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/til_signup_name"
+                            style="@style/Widget.RunTrack.AuthField"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            app:boxBackgroundColor="@color/auth_input"
+                            app:boxBackgroundMode="filled"
+                            app:boxCornerRadiusBottomEnd="16dp"
+                            app:boxCornerRadiusBottomStart="16dp"
+                            app:boxCornerRadiusTopEnd="16dp"
+                            app:boxCornerRadiusTopStart="16dp"
+                            app:boxStrokeWidth="0dp"
+                            app:boxStrokeWidthFocused="0dp"
+                            app:hintEnabled="false"
+                            app:startIconDrawable="@drawable/ic_auth_user"
+                            app:startIconTint="@color/auth_icon">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/et_signup_name"
+                                android:layout_width="match_parent"
+                                android:layout_height="56dp"
+                                android:hint="Nama lengkap"
+                                android:inputType="textPersonName|textCapWords"
+                                android:textColor="@color/auth_text_primary"
+                                android:textColorHint="@color/auth_text_hint"
+                                android:textSize="15sp" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/til_signup_email"
+                            style="@style/Widget.RunTrack.AuthField"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="12dp"
+                            app:boxBackgroundColor="@color/auth_input"
+                            app:boxBackgroundMode="filled"
+                            app:boxCornerRadiusBottomEnd="16dp"
+                            app:boxCornerRadiusBottomStart="16dp"
+                            app:boxCornerRadiusTopEnd="16dp"
+                            app:boxCornerRadiusTopStart="16dp"
+                            app:boxStrokeWidth="0dp"
+                            app:boxStrokeWidthFocused="0dp"
+                            app:hintEnabled="false"
+                            app:startIconDrawable="@drawable/ic_auth_mail"
+                            app:startIconTint="@color/auth_icon">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/et_signup_email"
+                                android:layout_width="match_parent"
+                                android:layout_height="56dp"
+                                android:hint="Alamat email"
+                                android:inputType="textEmailAddress"
+                                android:textColor="@color/auth_text_primary"
+                                android:textColorHint="@color/auth_text_hint"
+                                android:textSize="15sp" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/til_signup_password"
+                            style="@style/Widget.RunTrack.AuthField"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="12dp"
+                            app:boxBackgroundColor="@color/auth_input"
+                            app:boxBackgroundMode="filled"
+                            app:boxCornerRadiusBottomEnd="16dp"
+                            app:boxCornerRadiusBottomStart="16dp"
+                            app:boxCornerRadiusTopEnd="16dp"
+                            app:boxCornerRadiusTopStart="16dp"
+                            app:boxStrokeWidth="0dp"
+                            app:boxStrokeWidthFocused="0dp"
+                            app:endIconMode="password_toggle"
+                            app:endIconTint="@color/auth_icon"
+                            app:hintEnabled="false"
+                            app:startIconDrawable="@drawable/ic_auth_lock"
+                            app:startIconTint="@color/auth_icon">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/et_signup_password"
+                                android:layout_width="match_parent"
+                                android:layout_height="56dp"
+                                android:hint="Kata sandi"
+                                android:inputType="textPassword"
+                                android:textColor="@color/auth_text_primary"
+                                android:textColorHint="@color/auth_text_hint"
+                                android:textSize="15sp" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/til_signup_password_confirm"
+                            style="@style/Widget.RunTrack.AuthField"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="12dp"
+                            app:boxBackgroundColor="@color/auth_input"
+                            app:boxBackgroundMode="filled"
+                            app:boxCornerRadiusBottomEnd="16dp"
+                            app:boxCornerRadiusBottomStart="16dp"
+                            app:boxCornerRadiusTopEnd="16dp"
+                            app:boxCornerRadiusTopStart="16dp"
+                            app:endIconMode="password_toggle"
+                            app:endIconTint="@color/auth_icon"
+                            app:hintEnabled="false"
+                            app:startIconDrawable="@drawable/ic_auth_lock"
+                            app:startIconTint="@color/auth_icon">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/et_signup_password_confirm"
+                                android:layout_width="match_parent"
+                                android:layout_height="56dp"
+                                android:hint="Ulangi kata sandi"
+                                android:inputType="textPassword"
+                                android:textColor="@color/auth_text_primary"
+                                android:textColorHint="@color/auth_text_hint"
+                                android:textSize="15sp" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <TextView
+                            android:id="@+id/tv_password_rules"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:lineSpacingExtra="3dp"
+                            android:text="Minimal 8 karakter · huruf besar · huruf kecil · angka · tanpa spasi"
+                            android:textColor="@color/auth_text_hint"
+                            android:textSize="12sp" />
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/til_signup_weight"
+                            style="@style/Widget.RunTrack.AuthField"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="12dp"
+                            app:boxBackgroundColor="@color/auth_input"
+                            app:boxBackgroundMode="filled"
+                            app:boxCornerRadiusBottomEnd="16dp"
+                            app:boxCornerRadiusBottomStart="16dp"
+                            app:boxCornerRadiusTopEnd="16dp"
+                            app:boxCornerRadiusTopStart="16dp"
+                            app:boxStrokeWidth="0dp"
+                            app:boxStrokeWidthFocused="0dp"
+                            app:hintEnabled="false"
+                            app:suffixText="kg"
+                            app:suffixTextColor="@color/auth_text_hint">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/et_signup_weight"
+                                android:layout_width="match_parent"
+                                android:layout_height="56dp"
+                                android:hint="Berat badan (opsional)"
+                                android:inputType="numberDecimal"
+                                android:textColor="@color/auth_text_primary"
+                                android:textColorHint="@color/auth_text_hint"
+                                android:textSize="15sp" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="12dp"
+                            android:orientation="horizontal">
+
+                            <com.google.android.material.textfield.TextInputLayout
+                                android:id="@+id/til_signup_age"
+                                style="@style/Widget.RunTrack.AuthField"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="5dp"
+                                android:layout_weight="1"
+                                app:boxBackgroundColor="@color/auth_input"
+                                app:boxBackgroundMode="filled"
+                                app:boxCornerRadiusBottomEnd="16dp"
+                                app:boxCornerRadiusBottomStart="16dp"
+                                app:boxCornerRadiusTopEnd="16dp"
+                                app:boxCornerRadiusTopStart="16dp"
+                                app:boxStrokeWidth="0dp"
+                                app:boxStrokeWidthFocused="0dp"
+                                app:hintEnabled="false"
+                                app:suffixText="th"
+                                app:suffixTextColor="@color/auth_text_hint">
+
+                                <com.google.android.material.textfield.TextInputEditText
+                                    android:id="@+id/et_signup_age"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="56dp"
+                                    android:hint="Umur (opsional)"
+                                    android:inputType="number"
+                                    android:maxLength="3"
+                                    android:textColor="@color/auth_text_primary"
+                                    android:textColorHint="@color/auth_text_hint"
+                                    android:textSize="15sp" />
+                            </com.google.android.material.textfield.TextInputLayout>
+
+                            <com.google.android.material.textfield.TextInputLayout
+                                android:id="@+id/til_signup_height"
+                                style="@style/Widget.RunTrack.AuthField"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="5dp"
+                                android:layout_weight="1"
+                                app:boxBackgroundColor="@color/auth_input"
+                                app:boxBackgroundMode="filled"
+                                app:boxCornerRadiusBottomEnd="16dp"
+                                app:boxCornerRadiusBottomStart="16dp"
+                                app:boxCornerRadiusTopEnd="16dp"
+                                app:boxCornerRadiusTopStart="16dp"
+                                app:boxStrokeWidth="0dp"
+                                app:boxStrokeWidthFocused="0dp"
+                                app:hintEnabled="false"
+                                app:suffixText="cm"
+                                app:suffixTextColor="@color/auth_text_hint">
+
+                                <com.google.android.material.textfield.TextInputEditText
+                                    android:id="@+id/et_signup_height"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="56dp"
+                                    android:hint="Tinggi (opsional)"
+                                    android:inputType="numberDecimal"
+                                    android:maxLength="5"
+                                    android:textColor="@color/auth_text_primary"
+                                    android:textColorHint="@color/auth_text_hint"
+                                    android:textSize="15sp" />
+                            </com.google.android.material.textfield.TextInputLayout>
+                        </LinearLayout>
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btn_sign_up"
+                            android:layout_width="match_parent"
+                            android:layout_height="54dp"
+                            android:layout_marginTop="16dp"
+                            android:insetTop="0dp"
+                            android:insetBottom="0dp"
+                            android:text="Buat akun"
+                            android:textAllCaps="false"
+                            android:textColor="@color/white"
+                            android:textSize="16sp"
+                            android:textStyle="bold"
+                            app:backgroundTint="@color/brand"
+                            app:cornerRadius="28dp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/group_forgot"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:orientation="vertical"
+                        android:visibility="gone">
+
+                        <LinearLayout
+                            android:id="@+id/group_reset_form"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <FrameLayout
+                                android:layout_width="56dp"
+                                android:layout_height="56dp"
+                                android:background="@drawable/bg_icon_brand">
+
+                                <ImageView
+                                    android:layout_width="28dp"
+                                    android:layout_height="28dp"
+                                    android:layout_gravity="center"
+                                    android:contentDescription="Pemulihan akun"
+                                    android:src="@drawable/ic_auth_lock"
+                                    app:tint="@color/brand" />
+                            </FrameLayout>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="14dp"
+                                android:letterSpacing="-0.02"
+                                android:text="Lupa kata sandi?"
+                                android:textColor="@color/auth_text_primary"
+                                android:textSize="25sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="6dp"
+                                android:lineSpacingExtra="3dp"
+                                android:text="Masukkan email yang terdaftar. Kami akan mengirim tautan aman untuk membuat kata sandi baru."
+                                android:textColor="@color/auth_text_secondary"
+                                android:textSize="13sp" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="16dp"
+                                android:background="@drawable/bg_reset_info"
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal"
+                                android:padding="12dp">
+
+                                <ImageView
+                                    android:layout_width="18dp"
+                                    android:layout_height="18dp"
+                                    android:contentDescription="Informasi"
+                                    android:src="@drawable/ic_shield"
+                                    app:tint="@color/brand" />
+
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="8dp"
+                                    android:layout_weight="1"
+                                    android:lineSpacingExtra="2dp"
+                                    android:text="Tautan berlaku 1 jam dan hanya bisa dipakai sekali. Cek folder spam bila email belum terlihat."
+                                    android:textColor="@color/auth_text_secondary"
+                                    android:textSize="11sp" />
+                            </LinearLayout>
+
+                            <com.google.android.material.textfield.TextInputLayout
+                                android:id="@+id/til_reset_email"
+                                style="@style/Widget.RunTrack.AuthField"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="16dp"
+                                app:startIconDrawable="@drawable/ic_auth_mail">
+
+                                <com.google.android.material.textfield.TextInputEditText
+                                    android:id="@+id/et_reset_email"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="56dp"
+                                    android:hint="Email terdaftar"
+                                    android:inputType="textEmailAddress"
+                                    android:textColor="@color/auth_text_primary"
+                                    android:textColorHint="@color/auth_text_hint"
+                                    android:textSize="15sp" />
+                            </com.google.android.material.textfield.TextInputLayout>
+
+                            <com.google.android.material.button.MaterialButton
+                                android:id="@+id/btn_send_reset"
+                                android:layout_width="match_parent"
+                                android:layout_height="54dp"
+                                android:layout_marginTop="16dp"
+                                android:insetTop="0dp"
+                                android:insetBottom="0dp"
+                                android:text="Kirim tautan reset"
+                                android:textAllCaps="false"
+                                android:textColor="@color/white"
+                                android:textSize="16sp"
+                                android:textStyle="bold"
+                                app:backgroundTint="@color/brand"
+                                app:cornerRadius="28dp" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:gravity="center"
+                                android:text="Email dikirim dengan aman melalui Firebase"
+                                android:textColor="@color/auth_text_hint"
+                                android:textSize="10sp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/group_reset_sent"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_horizontal"
+                            android:orientation="vertical"
+                            android:paddingTop="8dp"
+                            android:visibility="gone">
+
+                            <FrameLayout
+                                android:layout_width="64dp"
+                                android:layout_height="64dp"
+                                android:background="@drawable/bg_icon_brand">
+
+                                <ImageView
+                                    android:layout_width="32dp"
+                                    android:layout_height="32dp"
+                                    android:layout_gravity="center"
+                                    android:contentDescription="Email terkirim"
+                                    android:src="@drawable/ic_check"
+                                    app:tint="@color/brand" />
+                            </FrameLayout>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="14dp"
+                                android:letterSpacing="-0.02"
+                                android:text="Email terkirim"
+                                android:textColor="@color/auth_text_primary"
+                                android:textSize="24sp"
+                                android:textStyle="bold" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="12dp"
+                                android:background="@drawable/bg_reset_info"
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal"
+                                android:padding="12dp">
+
+                                <ImageView
+                                    android:layout_width="16dp"
+                                    android:layout_height="16dp"
+                                    android:contentDescription="Email tujuan"
+                                    android:src="@drawable/ic_auth_mail"
+                                    app:tint="@color/brand" />
+
+                                <TextView
+                                    android:id="@+id/tv_reset_sent_email"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="8dp"
+                                    android:layout_weight="1"
+                                    android:text="qa.runtrack.2026@gmail.com"
+                                    android:textColor="@color/auth_text_primary"
+                                    android:textSize="13sp"
+                                    android:textStyle="bold" />
+                            </LinearLayout>
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="14dp"
+                                android:background="@drawable/bg_reset_info"
+                                android:lineSpacingExtra="3dp"
+                                android:padding="12dp"
+                                android:text="Buka email tersebut, lalu buat kata sandi baru. Setelah berhasil, kembali ke aplikasi dan masuk dengan kata sandi baru."
+                                android:textColor="@color/auth_text_secondary"
+                                android:textSize="11sp" />
+
+                            <com.google.android.material.button.MaterialButton
+                                android:id="@+id/btn_resend_reset"
+                                android:layout_width="match_parent"
+                                android:layout_height="50dp"
+                                android:layout_marginTop="16dp"
+                                android:insetTop="0dp"
+                                android:insetBottom="0dp"
+                                android:text="Kirim ulang email"
+                                android:textAllCaps="false"
+                                android:textColor="@color/white"
+                                android:textSize="14sp"
+                                android:textStyle="bold"
+                                app:backgroundTint="@color/brand"
+                                app:cornerRadius="26dp" />
+
+                            <com.google.android.material.button.MaterialButton
+                                android:id="@+id/btn_change_reset_email"
+                                style="@style/Widget.Material3.Button.TextButton"
+                                android:layout_width="match_parent"
+                                android:layout_height="48dp"
+                                android:layout_marginTop="2dp"
+                                android:text="Ganti email"
+                                android:textAllCaps="false"
+                                android:textColor="@color/brand"
+                                android:textSize="13sp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btn_back_to_login"
+                            style="@style/Widget.Material3.Button.TextButton"
+                            android:layout_width="match_parent"
+                            android:layout_height="48dp"
+                            android:layout_marginTop="4dp"
+                            android:text="Kembali ke masuk"
+                            android:textAllCaps="false"
+                            android:textColor="@color/auth_text_secondary"
+                            android:textSize="14sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/group_continue"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginBottom="16dp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="1dp"
+                            android:layout_weight="1"
+                            android:background="@color/auth_divider" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="12dp"
+                            android:layout_marginEnd="12dp"
+                            android:letterSpacing="0.12"
+                            android:text="ATAU LANJUTKAN DENGAN"
+                            android:textColor="@color/auth_text_hint"
+                            android:textSize="11sp" />
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="1dp"
+                            android:layout_weight="1"
+                            android:background="@color/auth_divider" />
+                    </LinearLayout>
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btn_google_sign_in"
+                        android:layout_width="match_parent"
+                        android:layout_height="52dp"
+                        android:insetTop="0dp"
+                        android:insetBottom="0dp"
+                        android:text="Google"
+                        android:textAllCaps="false"
+                        android:textColor="@color/auth_google_text"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        app:backgroundTint="@color/auth_google_bg"
+                        app:cornerRadius="16dp"
+                        app:icon="@drawable/ic_google"
+                        app:iconGravity="textStart"
+                        app:iconPadding="10dp"
+                        app:iconTint="@null" />
+
+                    <TextView
+                        android:id="@+id/tv_register_link"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="18dp"
+                        android:gravity="center"
+                        android:padding="8dp"
+                        android:text="New to RunTrack?  Create an account"
+                        android:textColor="@color/auth_text_secondary"
+                        android:textSize="14sp" />
+                </LinearLayout>
+            </androidx.core.widget.NestedScrollView>
+        </LinearLayout>
+    </LinearLayout>
+</FrameLayout>

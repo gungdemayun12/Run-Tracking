@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="180dp"
+    android:height="220dp"
+    android:viewportWidth="180"
+    android:viewportHeight="220">
+    <!-- Hair -->
+    <path
+        android:fillColor="#FF8A65"
+        android:pathData="M70,20 C50,20 40,35 45,55 C50,75 70,80 95,80 C120,80 130,60 125,40 C120,25 100,20 90,20 C80,20 75,20 70,20 Z" />
+    <!-- Face -->
+    <path
+        android:fillColor="#FFCCBC"
+        android:pathData="M55,45 C50,45 48,55 50,70 C52,85 60,95 75,95 C90,95 98,85 100,70 C102,55 100,45 95,45 C90,45 60,45 55,45 Z" />
+    <!-- Eyes -->
+    <path
+        android:fillColor="#3E2723"
+        android:pathData="M65,60 C63,60 62,62 63,64 C64,66 66,66 68,64 C69,62 68,60 66,60 Z" />
+    <path
+        android:fillColor="#3E2723"
+        android:pathData="M80,60 C78,60 77,62 78,64 C79,66 81,66 83,64 C84,62 83,60 81,60 Z" />
+    <!-- Smile -->
+    <path
+        android:fillColor="#3E2723"
+        android:pathData="M70,75 C68,75 67,77 68,79 C69,81 71,81 73,79 C74,77 73,75 71,75 Z"
+        android:strokeColor="#3E2723"
+        android:strokeWidth="2" />
+    <!-- Neck -->
+    <path
+        android:fillColor="#FFCCBC"
+        android:pathData="M70,95 C65,95 63,105 65,115 C67,125 75,125 77,115 C79,105 77,95 72,95 Z" />
+    <!-- Shirt (yellow) -->
+    <path
+        android:fillColor="#FFD54F"
+        android:pathData="M55,115 C50,115 45,130 48,150 C50,170 60,180 75,180 C90,180 100,170 102,150 C105,130 100,115 95,115 C90,115 60,115 55,115 Z" />
+    <!-- Arms -->
+    <path
+        android:fillColor="#FFCCBC"
+        android:pathData="M48,140 C40,140 35,150 38,165 C40,180 45,185 55,180 C65,175 60,160 58,150 Z" />
+    <path
+        android:fillColor="#FFCCBC"
+        android:pathData="M102,140 C110,140 115,150 112,165 C110,180 105,185 95,180 C85,175 90,160 92,150 Z" />
+    <!-- Book -->
+    <path
+        android:fillColor="#7986CB"
+        android:pathData="M60,170 C55,170 52,180 55,190 C58,200 70,200 75,190 C80,180 77,170 72,170 Z" />
+    <!-- Book pages -->
+    <path
+        android:fillColor="#FFF"
+        android:pathData="M62,172 C58,172 56,178 58,185 C60,192 68,192 72,185 C74,178 72,172 68,172 Z" />
+</vector>

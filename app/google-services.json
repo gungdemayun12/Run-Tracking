@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "787572797010",
+    "firebase_url": "https://running-track-b0911-default-rtdb.firebaseio.com",
+    "project_id": "running-track-b0911",
+    "storage_bucket": "running-track-b0911.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:787572797010:android:0c605de186536100bcb98b",
+        "android_client_info": {
+          "package_name": "com.example.runtrack"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "787572797010-fqr7rva0r7it5d4fan5ajnh811dtqnfr.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.runtrack",
+            "certificate_hash": "c6454d4caf3753c00d35dc1d11e925a7476bcf5a"
+          }
+        },
+        {
+          "client_id": "787572797010-7mavv4u3akgrfi0meg60o4lcko3f9s9c.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCu2VUqWVRLDP6JGohC1-9SxY3fjx7fgy0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "787572797010-7mavv4u3akgrfi0meg60o4lcko3f9s9c.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
